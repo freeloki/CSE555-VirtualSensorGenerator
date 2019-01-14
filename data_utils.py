@@ -1,8 +1,10 @@
 import numpy as np
 import sys
 
-#TRAIN_DATA_FILE = "dataset/train/Inertial Signals/total_acc_x_train.txt"
+# TRAIN_DATA_FILE = "dataset/train/Inertial Signals/total_acc_x_train.txt"
 TRAIN_DATA_FILE = "dataset/train/Inertial Signals/body_gyro_x_train.txt"
+
+TEST_DATA_FILE = "dataset/test/Inertial Signals/body_gyro_x_test.txt"
 
 
 def load_training_data():
@@ -10,6 +12,15 @@ def load_training_data():
     shape of result = (n_exp, len)
     """
     data = np.loadtxt(TRAIN_DATA_FILE)
+    print(data.shape)
+    return data.T
+
+
+def load_test_data():
+    """ Returns a matrix of training data.
+    shape of result = (n_exp, len)
+    """
+    data = np.loadtxt(TEST_DATA_FILE)
     print(data.shape)
     return data.T
 
@@ -35,7 +46,8 @@ class DataLoader(object):
 
     def next_batch(self):
         batch_xs = self._data[:, self.pointer:self.pointer + self.num_steps, :]
+        #print(batch_xs)
         batch_ys = self._data[:, self.pointer + 1:self.pointer + self.num_steps + 1, :]
+        #print(batch_ys)
         self.pointer = self.pointer + self.num_steps
         return batch_xs, batch_ys
-
