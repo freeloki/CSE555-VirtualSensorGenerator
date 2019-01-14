@@ -1,0 +1,6 @@
+model_checkpoint_path: "mdngyromodel.ckpt-1499"
+all_model_checkpoint_paths: "mdngyromodel.ckpt-1099"
+all_model_checkpoint_paths: "mdngyromodel.ckpt-1199"
+all_model_checkpoint_paths: "mdngyromodel.ckpt-1299"
+all_model_checkpoint_paths: "mdngyromodel.ckpt-1399"
+all_model_checkpoint_paths: "mdngyromodel.ckpt-1499"
